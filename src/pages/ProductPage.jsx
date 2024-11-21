@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const BrandListPage = () => {
+const ProductPage = () => {
   const [currentPage, setCurrentPage] = useState(1)
   const [selectedBrand, setSelectedBrand] = useState(null)
 
@@ -121,4 +121,4 @@ const BrandListPage = () => {
   )
 }
 
-export default BrandListPage
+export default ProductPage

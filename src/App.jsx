@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import BrandListPage from './components/BrandListPage'
+import HomePage from './pages/HomePage'
+import ProductPage from './pages/ProductPage'
+import LoginPage from './pages/LoginPage'
+import WishlistPage from './pages/WishlistPage'
+import CartPage from './pages/CartPage'
+import BlogPage from './pages/BlogPage'
+import ContactPage from './pages/ContactPage'
 import Logo from './assets/dPerfume.png'
-
-// Properly defined page components
-const ProductPage = () => <div>Product Page</div>
-const LoginPage = () => <div>Login Page</div>
-const WishlistPage = () => <div>Wishlist Page</div>
-const CartPage = () => <div>Cart Page</div>
-const BlogPage = () => <div>Blog Page</div>
-const ContactPage = () => <div>Contact Page</div>
 
 function App() {
   const [cartItems, setCartItems] = useState(3)
@@ -77,7 +75,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar 
+        <Navbar
           logo={Logo}
           cartItemCount={cartItems}
           navItems={navItems}
@@ -87,7 +85,7 @@ function App() {
         />
 
         <Routes>
-          <Route path="/" element={<BrandListPage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/product" element={<ProductPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/wishlist" element={<WishlistPage />} />

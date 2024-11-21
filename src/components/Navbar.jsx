@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'  // 重要：引入 Link
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'material-symbols/outlined.css'
 import PropTypes from 'prop-types'
 
 const Navbar = ({ 
-  logo = '', // Provide a default empty string
+  logo = '', 
   cartItemCount = 0, 
   navItems = [], 
   mobileNavItems = [],
@@ -21,7 +22,6 @@ const Navbar = ({
     if (onNavItemClick) {
       onNavItemClick(item)
     }
-    // Optional: close mobile menu after click
     setIsMenuOpen(false)
   }
 
@@ -30,11 +30,10 @@ const Navbar = ({
       <div className="container-fluid d-flex justify-content-between align-items-center">
         {/* Logo */}
         {logo && (
-          <a 
-            href="#" 
+          <Link  // 使用 Link 替代 <a>
+            to="/"  // 導航到首頁
             className="navbar-brand"
             onClick={(e) => {
-              e.preventDefault()
               if (onLogoClick) onLogoClick()
             }}
           >
@@ -43,24 +42,21 @@ const Navbar = ({
               alt="Logo" 
               style={{ maxHeight: '50px' }} 
             />
-          </a>
+          </Link>
         )}
 
-         {/* Desktop Navigation */}
-         <div className="d-none d-lg-flex align-items-center">
+        {/* Desktop Navigation */}
+        <div className="d-none d-lg-flex align-items-center">
           <ul className="navbar-nav d-flex flex-row gap-3">
             {navItems.map((item, index) => (
               <li 
                 key={index} 
                 className="nav-item d-flex align-items-center"
               >
-                <a 
-                  href={item.href} 
+                <Link  // 使用 Link 替代 <a>
+                  to={item.href}  // 使用 to 屬性
                   className="nav-link d-flex align-items-center"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleNavItemClick(item)
-                  }}
+                  onClick={() => handleNavItemClick(item)}
                 >
                   {item.icon && (
                     <span className="material-symbols-outlined me-1">
@@ -68,7 +64,7 @@ const Navbar = ({
                     </span>
                   )}
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -124,11 +120,10 @@ const Navbar = ({
                   key={index} 
                   className="mb-3 border-bottom pb-2"
                 >
-                  <a 
-                    href={item.href} 
+                  <Link  // 使用 Link 替代 <a>
+                    to={item.href}  // 使用 to 屬性
                     className="text-decoration-none text-dark d-flex align-items-center"
-                    onClick={(e) => {
-                      e.preventDefault()
+                    onClick={() => {
                       handleNavItemClick(item)
                     }}
                   >
@@ -138,19 +133,19 @@ const Navbar = ({
                       </span>
                     )}
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        )}
+      )}
     </nav>
   )
 }
 
 Navbar.propTypes = {
-  logo: PropTypes.string, // Make logo optional
+  logo: PropTypes.string,
   cartItemCount: PropTypes.number,
   navItems: PropTypes.arrayOf(
     PropTypes.shape({
