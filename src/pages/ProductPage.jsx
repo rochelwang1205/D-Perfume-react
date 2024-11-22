@@ -1,31 +1,37 @@
-import React, { useState } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React, { useState, useEffect } from 'react'
 
 const ProductPage = () => {
   const [currentPage, setCurrentPage] = useState(1)
-  const [selectedBrand, setSelectedBrand] = useState(null)
+  const [selectedCategory, setSelectedCategory] = useState(null)
+  const [products, setProducts] = useState([])
+  const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(true)
 
-  const brands = [
-    'CHANEL', 
-    'Jo Malone', 
-    'Curology', 
-    'Dior', 
-    'Chloe', 
-    'ZARA'
-  ]
+  // Fetch products from API
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('https://ec-course-api.hexschool.io/v2/api/hex-project/products/all')
+        const data = await response.json()
+        if (data.success) {
+          setProducts(data.products)
+          // Extract unique categories
+          const uniqueCategories = [...new Set(data.products.map(product => product.category))]
+          setCategories(uniqueCategories)
+        }
+        setLoading(false)
+      } catch (error) {
+        console.error('Error fetching products:', error)
+        setLoading(false)
+      }
+    }
+    
+    fetchProducts()
+  }, [])
 
-  // Placeholder product data (you'd typically fetch this from an API)
-  const products = [
-    { id: 1, brand: 'CHANEL', name: 'CHANEL Product 1', price: 100 },
-    { id: 2, brand: 'CHANEL', name: 'CHANEL Product 2', price: 150 },
-    { id: 3, brand: 'Jo Malone', name: 'Jo Malone Product 1', price: 80 },
-    { id: 4, brand: 'Dior', name: 'Dior Product 1', price: 120 },
-    // Add more products...
-  ]
-
-  // Filter products based on selected brand
-  const filteredProducts = selectedBrand 
-    ? products.filter(product => product.brand === selectedBrand)
+  // Filter products based on selected category
+  const filteredProducts = selectedCategory 
+    ? products.filter(product => product.category === selectedCategory)
     : products
 
   // Pagination logic
@@ -33,35 +39,45 @@ const ProductPage = () => {
   const indexOfLastProduct = currentPage * productsPerPage
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct)
-
-  // Calculate total pages
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage)
+
+  if (loading) {
+    return (
+      <div className="container-fluid">
+        <div className="text-center py-5">
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="container-fluid">
-      {/* Brand Subnav */}
+      {/* Category Subnav */}
       <div className="row mb-4">
         <div className="col-12">
           <nav className="navbar navbar-light bg-light">
             <div className="container-fluid justify-content-start">
               <ul className="nav nav-pills">
-                {brands.map((brand, index) => (
+                {categories.map((category, index) => (
                   <li key={index} className="nav-item me-2">
                     <button 
-                      className={`nav-link ${selectedBrand === brand ? 'active' : ''}`}
-                      onClick={() => setSelectedBrand(brand)}
+                      className={`nav-link ${selectedCategory === category ? 'active' : ''}`}
+                      onClick={() => setSelectedCategory(category)}
                     >
-                      {brand}
+                      {category}
                     </button>
                   </li>
                 ))}
-                {selectedBrand && (
+                {selectedCategory && (
                   <li className="nav-item">
                     <button 
                       className="nav-link text-danger"
-                      onClick={() => setSelectedBrand(null)}
+                      onClick={() => setSelectedCategory(null)}
                     >
-                      Clear Filter
+                      清除篩選
                     </button>
                   </li>
                 )}
@@ -74,17 +90,36 @@ const ProductPage = () => {
       {/* Product List */}
       <div className="row">
         <div className="col-12">
-          <div className="row row-cols-2 row-cols-md-4 g-4">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
             {currentProducts.map((product) => (
               <div key={product.id} className="col">
                 <div className="card h-100">
+                  <img 
+                    src={product.image} 
+                    className="card-img-top" 
+                    alt={product.title}
+                    style={{ height: '200px', objectFit: 'cover' }}
+                  />
                   <div className="card-body">
-                    <h5 className="card-title">{product.name}</h5>
-                    <p className="card-text">Brand: {product.brand}</p>
-                    <p className="card-text fw-bold">${product.price}</p>
+                    <h5 className="card-title">{product.title}</h5>
+                    <p className="card-text">類別: {product.category}</p>
+                    <p className="card-text">容量: {product.unit}</p>
+                    <p className="card-text">
+                      <small className="text-muted text-decoration-line-through">
+                        原價: ${product.origin_price}
+                      </small>
+                    </p>
+                    <p className="card-text fw-bold text-danger">
+                      特價: ${product.price}
+                    </p>
                   </div>
                   <div className="card-footer">
-                    <button className="btn btn-primary w-100">Add to Cart</button>
+                    <button 
+                      className="btn btn-primary w-100"
+                      disabled={!product.is_enabled}
+                    >
+                      {product.is_enabled ? '加入購物車' : '商品未上架'}
+                    </button>
                   </div>
                 </div>
               </div>

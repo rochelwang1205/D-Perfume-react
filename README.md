@@ -13,10 +13,12 @@
 
 ## 里程碑
 - 
-- livepages setting
+- 24/11/22 Action & gh-pages setting + ()
 - 24/11/21 environment setup & navbar page switch  (2hrs)
 
 ## reference
+- [React + vite 使用GitHub action 部屬到gitHub Pages筆記](https://vanessa7591.medium.com/react-vite-%E4%BD%BF%E7%94%A8github-action-%E9%83%A8%E5%B1%AC%E5%88%B0github-pages%E7%AD%86%E8%A8%98-9e1b7c010c59)
+- [Storing and sharing data from a workflow](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow)
 - [postman](https://www.postman.com/)
 - [vite](https://vite.dev/guide/)
 - [React](https://react.dev/reference/react)
