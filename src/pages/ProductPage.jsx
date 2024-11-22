@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Footer from '../components/Footer'
 
 const ProductPage = () => {
   const [currentPage, setCurrentPage] = useState(1)
@@ -152,6 +153,7 @@ const ProductPage = () => {
           </div>
         </div>
       )}
+      <Footer />
     </div>
   )
 }

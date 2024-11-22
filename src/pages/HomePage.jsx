@@ -1,5 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SubscriptionForm from '../components/SubscriptionForm';
+import Footer from '../components/Footer';
 
 const HomePage = () => {
   return (
@@ -8,7 +10,7 @@ const HomePage = () => {
       <section 
         className="vh-100 d-flex align-items-center text-white" 
         style={{
-          backgroundImage: `url('https://github.com/hexschool/webLayoutTraining1st/blob/master/perfume-week6/index1.jpg?raw=true')`,
+          backgroundImage: `url('https://github.com/rochelwang1205/D-Perfume-react/blob/main/src/images/index1.jpg?raw=true')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -31,7 +33,7 @@ const HomePage = () => {
           <div className="row align-items-center mb-5">
             <div className="col-md-6 order-md-2">
               <img 
-                src="src/images/index2.jpg" 
+                src="https://github.com/rochelwang1205/D-Perfume-react/blob/main/src/images/index2.jpg?raw=true" 
                 alt="Gabrielle CHANEL" 
                 className="img-fluid"
               />
@@ -49,7 +51,7 @@ const HomePage = () => {
           <div className="row align-items-center mb-5">
             <div className="col-md-6">
               <img 
-                src="src/images/index3.png" 
+                src="https://github.com/rochelwang1205/D-Perfume-react/blob/main/src/images/index3.png?raw=true" 
                 alt="Five O'clock Au Gingembre" 
                 className="img-fluid"
               />
@@ -71,7 +73,7 @@ const HomePage = () => {
                 <div className="col-md-4">
                   <div className="card border-0">
                     <img 
-                      src="src/images/index6.jpg" 
+                      src="https://github.com/rochelwang1205/D-Perfume-react/blob/main/src/images/index4.jpg?raw=true" 
                       alt="Poppy & Barley" 
                       className="card-img-top"
                       style={{height: '540px', objectFit: 'cover'}}
@@ -91,7 +93,7 @@ const HomePage = () => {
                 <div className="col-md-4">
                   <div className="card border-0">
                     <img 
-                      src="src/images/index7.jpg" 
+                      src="https://github.com/rochelwang1205/D-Perfume-react/blob/main/src/images/index5.jpg?raw=true" 
                       alt="Body Wash" 
                       className="card-img-top"
                       style={{height: '540px', objectFit: 'cover'}}
@@ -111,7 +113,7 @@ const HomePage = () => {
                   <div className="card border-0">
                     <div className="position-relative">
                       <img 
-                        src="src/images/index8.jpg" 
+                        src="https://github.com/rochelwang1205/D-Perfume-react/blob/main/src/images/index6.jpg?raw=true" 
                         alt="Apple Cider Vinegar Capsule" 
                         className="card-img-top"
                         style={{height: '540px', objectFit: 'cover'}}
@@ -137,7 +139,7 @@ const HomePage = () => {
           <div className="row align-items-center py-5">
             <div className="col-md-8">
               <img 
-                src="src/images/index9.jpg" 
+                src="https://github.com/rochelwang1205/D-Perfume-react/blob/main/src/images/index7.jpg?raw=true" 
                 alt="Bottle-recycling" 
                 className="img-fluid"
               />
@@ -151,6 +153,8 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+      <SubscriptionForm />
+      <Footer />
     </>
   );
 };
