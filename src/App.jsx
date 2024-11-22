@@ -16,22 +16,22 @@ function App() {
   const navItems = [
     {
       label: 'Product',
-      href: '/product',
+      href: '/D-Perfume-react/product',
       icon: 'store'
     },
     {
       label: 'Log In',
-      href: '/login',
+      href: '/D-Perfume-react/login',
       icon: 'person'
     },
     {
       label: 'Wishlist',
-      href: '/wishlist',
+      href: '/D-Perfume-react/wishlist',
       icon: 'favorite'
     },
     {
       label: `Cart (${cartItems})`,
-      href: '/cart',
+      href: '/D-Perfume-react/cart',
       icon: 'shopping_cart'
     }
   ]
@@ -39,27 +39,27 @@ function App() {
   const mobileNavItems = [
     {
       label: 'Product',
-      href: '/product',
+      href: '/D-Perfume-react/product',
       icon: 'store'
     },
     {
       label: 'Wishlist',
-      href: '/wishlist',
+      href: '/D-Perfume-react/wishlist',
       icon: 'favorite'
     },
     {
       label: 'Blog',
-      href: '/blog',
+      href: '/D-Perfume-react/blog',
       icon: 'menu_book'
     },
     {
       label: 'Contact',
-      href: '/contact',
+      href: '/D-Perfume-react/contact',
       icon: 'contact_mail'
     },
     {
       label: 'Log In',
-      href: '/login',
+      href: '/D-Perfume-react/login',
       icon: 'person'
     }
   ]
@@ -85,13 +85,13 @@ function App() {
         />
 
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/product" element={<ProductPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/wishlist" element={<WishlistPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/D-Perfume-react/" element={<HomePage />} />
+          <Route path="/D-Perfume-react/product" element={<ProductPage />} />
+          <Route path="/D-Perfume-react/login" element={<LoginPage />} />
+          <Route path="/D-Perfume-react/wishlist" element={<WishlistPage />} />
+          <Route path="/D-Perfume-react/cart" element={<CartPage />} />
+          <Route path="/D-Perfume-react/blog" element={<BlogPage />} />
+          <Route path="/D-Perfume-react/contact" element={<ContactPage />} />
         </Routes>
       </div>
     </Router>
