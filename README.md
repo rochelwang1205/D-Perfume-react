@@ -17,7 +17,9 @@
 - 24/11/21 environment setup & navbar page switch  (2hrs)
 
 ## reference
-
+- [postman](https://www.postman.com/)
+- [vite](https://vite.dev/guide/)
+- [React](https://react.dev/reference/react)
 ### Author
 - Website - [Rochel Wang](https://github.com/rochelwang1205)
 - Frontend Mentor - [@Rochel Wang](https://www.frontendmentor.io/profile/rochelwang1205)
