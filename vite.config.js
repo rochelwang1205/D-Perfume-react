@@ -5,4 +5,13 @@ export default defineConfig({
   plugins: [react()],
   base: '/D-Perfume-react/',
   assetsInclude: ['**/*.png', '**/*.jpg', '**/*.svg'],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import "./src/styles/variables.scss";
+        `
+      }
+    }
+  }
 })

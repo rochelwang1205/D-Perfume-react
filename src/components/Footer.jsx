@@ -23,9 +23,9 @@ const Footer = () => {
         style={{ maxWidth: '1078px' }}
       >
         <div className="d-flex align-items-center">
-          <Link to="/" className="me-4">
+          <Link to="/D-Perfume-react" className="me-4">
             <img 
-              src="https://github.com/rochelwang1205/D-Perfume-react/blob/main/src/assets/dPerfume.png?raw=true" 
+              src="https://github.com/rochelwang1205/D-Perfume/blob/main/assets/images/d%E2%80%99Perfumewhite.png?raw=true" 
               alt="D'Perfume logo"
               height="30"
             />
@@ -35,17 +35,17 @@ const Footer = () => {
         
         <ul className="list-unstyled d-none d-md-flex mb-0">
           <li className="me-4">
-            <Link to="/product" style={linkStyle}>
+            <Link to="/D-Perfume-react/product" style={linkStyle}>
               Product
             </Link>
           </li>
           <li className="me-4">
-            <Link to="/blog" style={linkStyle}>
+            <Link to="/D-Perfume-react/blog" style={linkStyle}>
               Blog
             </Link>
           </li>
           <li>
-            <Link to="/contact" style={linkStyle}>
+            <Link to="/D-Perfume-react/contact" style={linkStyle}>
               Contact
             </Link>
           </li>

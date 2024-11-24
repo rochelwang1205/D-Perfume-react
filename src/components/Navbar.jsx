@@ -26,12 +26,12 @@ const Navbar = ({
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white py-3">
+    <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 container">
       <div className="container-fluid d-flex justify-content-between align-items-center">
         {/* Logo */}
         {logo && (
           <Link  // 使用 Link 替代 <a>
-            to="/"  // 導航到首頁
+            to="/D-Perfume-react"  // 導航到首頁
             className="navbar-brand"
             onClick={(e) => {
               if (onLogoClick) onLogoClick()
@@ -99,8 +99,10 @@ const Navbar = ({
       {/* Mobile Menu Offcanvas */}
       {isMenuOpen && (
         <div 
-          className="offcanvas offcanvas-end show" 
+          className="offcanvas offcanvas-top show h-auto d-lg-none" 
           tabIndex="-1" 
+          data-bs-scroll="false"
+          backdrop="false"
           style={{ 
             visibility: 'visible', 
             backgroundColor: 'white' 
@@ -113,7 +115,7 @@ const Navbar = ({
               onClick={toggleMenu}
             ></button>
           </div>
-          <div className="offcanvas-body">
+          <div className="offcanvas-body bg-darkgray">
             <ul className="list-unstyled">
               {mobileNavItems.map((item, index) => (
                 <li 
@@ -122,7 +124,7 @@ const Navbar = ({
                 >
                   <Link  // 使用 Link 替代 <a>
                     to={item.href}  // 使用 to 屬性
-                    className="text-decoration-none text-dark d-flex align-items-center"
+                    className="text-decoration-none text-white d-flex align-items-center justify-content-center"
                     onClick={() => {
                       handleNavItemClick(item)
                     }}

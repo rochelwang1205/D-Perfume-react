@@ -45,7 +45,7 @@ const SubscriptionForm = () => {
       <div className="container" style={{ maxWidth: '1078px', padding: '312px 16px 112px 16px' }}>
         <div className="row justify-content-center">
           <div className="col-12 col-md-8">
-            <h2 className="mb-4 fw-semibold fs-2">
+            <h2 className="mb-4 fw-semibold fs-2 text-gray">
               記得<br />訂閱以獲取更多資訊！
             </h2>
             <div>
