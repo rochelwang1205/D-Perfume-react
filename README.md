@@ -12,8 +12,7 @@
   - App.jsx
 
 ## 里程碑
-- Wishlist function
-- 24/11/24 GoodsList Card component & details + HomePage details (3hrs)
+- 24/11/24 GoodsList Card component & details + HomePage details + Wishlist function (4hrs)
 - 24/11/22 Action & gh-pages setting + transToReact&BS5 (1.5hrs)
 - 24/11/21 environment setup & navbar page switch  (2hrs)
 
